@@ -352,6 +352,11 @@ a:hover {
   font-size:150%;
 }
 
+.subsubsectionHead {
+  font-family: sans-serif;
+  font-size:125%;
+}
+
 /* ============================================================
  * Cabeceras de secciones y subsecciones en el texto
  * ============================================================
@@ -364,14 +369,14 @@ a:hover {
 
 .likesectionToc {
   font-family: sans-serif;
+                                                                          
+
+                                                                          
   font-size:100%;
 }
 
 .subsectionToc {
   font-family: sans-serif;
-                                                                          
-
-                                                                          
   font-size:100%;
 }
 
