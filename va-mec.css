@@ -141,8 +141,7 @@ div.abstract {width:100%;}
 .subsectionToc, .likesubsectionToc {margin-left:2em;}
 .subsubsectionToc, .likesubsubsectionToc {margin-left:4em;}
 figure.float, div.figure {margin-left: auto; margin-right: auto;}
-figure.float img {text-align:center;}
-figure.figure img {text-align:center;}
+figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}
 figure.figure > p {text-align:center;}
 figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
 figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
@@ -152,7 +151,12 @@ mtd.align-odd{margin-left:2em; text-align:right;}
 mtd.align-even{margin-right:2em; text-align:left;}
 .boxed{border: 1px solid black; padding-left:2px; padding-right:2px;}
 .rotatebox{display: inline-block;}
-.figure img.graphics {margin-left:10%;}
+ .edpuzzlecontainer { position: relative; width: 100%; height: 0px; padding-bottom: calc(56.25% + 110px + 50px); /*110px es la altura de la barra de reproduccion de edpuzzle, 140px cuando aparece el tiempo abajo; 50px es la cabecera de assignment*/ border-style: solid; border-width: 5px; border-color: #F4F4F4; background: #F4F4F4; } 
+ .edpuzzlecontainer iframe { position: absolute !important; left: 0px; right: 0px; top: 0px; bottom: 0px; height: 100%; width: 100%; border:none; frameborder:0px; allowfullscreen=true; } 
+ .edpuzzlecontainer p { position: absolute !important; left: 0px; right: 0px; top: 0px; bottom: 0px; height: 100%; width: 100%; padding: 0.2em; border:none; } 
+ .youtubecontainer { position: relative; width: 100%; height: 0px; padding-bottom: 56.25%; border-style: solid; border-width: 5px; border-color: #F4F4F4; background: #F4F4F4; } 
+ .youtubecontainer iframe { position: absolute !important; left: 0px; right: 0px; top: 0px; bottom: 0px; height: 100%; width: 100%; border:none; } 
+.hello{color:red;}
 /* end css.sty */
 
 /* panel principal */
@@ -170,7 +174,6 @@ body {
      hyphens:auto;
      margin-top:0px;
 }
-
 
 
 /* panel toc */
@@ -193,19 +196,20 @@ h2.titleHead {
 }
 
 nav.breadcrumbs-bar {
+  //border: 1px solid black;
                                                                           
 
                                                                           
-  //border: 1px solid black;
   text-align: center;
-  overflow: hidden;
+  overflow: auto;
   background-color: #F4F4F4;
-  //background-color: violet;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
-  left: 0;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
   height: 2em;
+  padding: 0px;
+  margin: 0px;
   line-height: 2em;// centrar texto verticalmente
   font-size:100%;
   z-index:1; // para que no lo tapen otros elementos como iframes
@@ -215,10 +219,8 @@ nav.breadcrumbs-bar {
 
 nav.controls-bar {
   overflow: hidden;
-  //background-color: yellow;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 50%; /* Position the navbar at the bottom of the page */
-  //border: 1px solid black;
+  position: fixed;
+  top: 50%;
   width: 100%;
   left: 0;
   display:grid;
@@ -237,11 +239,11 @@ nav.controls-bar nav.prev {
 nav.controls-bar nav.next {
   //border: 1px solid black;
   grid-column: 3;
+  font-size:200%;
+}
                                                                           
 
                                                                           
-  font-size:200%;
-}
 
 
 nav.controls-bar a:hover{
@@ -281,56 +283,11 @@ a:hover {
      outline: none;
      -moz-outline-style: none;
 }
+
+
                                                                           
 
                                                                           
-
-
-.edpuzzlecontainer {
-  position: relative;
-  width: 100%;
-  height: 0px;
-  padding-bottom: calc(56.25% + 110px + 50px); /*110px es la altura de la barra de reproducción de edpuzzle, 140px cuando aparece el tiempo abajo; 50px es la cabecera de assignment*/
-  //scrolling:no;
-  //overflow:hidden;
-  border-style: solid;
-     border-width: 5px;
-     border-color: #F4F4F4;
-     background: #F4F4F4;
-}
-
-.edpuzzlecontainer iframe {
-  position: absolute !important;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
-     height: 100%;
-     width: 100%;
-     //padding: 0;
-     border:none;
-     //scrolling:no;
-     //overflow:hidden;
-     frameborder:0px;
-     allowfullscreen=true;
-}
-
-.edpuzzlecontainer p {
-  position: absolute !important;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
-     height: 100%;
-     width: 100%;
-     padding: 0.2em;
-     border:none;
-                                                                          
-
-                                                                          
-     //scrolling:no;
-     //overflow:hidden;
-}
 
 /* ============================================================
  * Cabeceras de secciones y subsecciones en el texto
@@ -369,15 +326,27 @@ a:hover {
 
 .likesectionToc {
   font-family: sans-serif;
-                                                                          
-
-                                                                          
-  font-size:100%;
+  font-size: 100%;
 }
 
+                                                                          
+
+                                                                          
 .subsectionToc {
   font-family: sans-serif;
-  font-size:100%;
+  font-size: 100%;
+}
+
+
+/* ============================================================
+ * Título en toc
+ * ============================================================
+ */
+
+.title-in-toc {
+  //font-family: sans-serif;
+  font-size: 150%;
+  font-weight: bold;
 }
 
 
